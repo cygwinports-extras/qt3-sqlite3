@@ -1,0 +1,18 @@
+inherit qt3-qmake
+
+NAME="qt3-sqlite3"
+VERSION=0.2
+RELEASE=1
+CATEGORY="Database"
+SUMMARY="SQLite3 driver for Qt3"
+DESCRIPTION="With this driver you can access the files created by sqlite3
+through the standard Qt3 sql module. The driver name is QSQLITE3."
+HOMEPAGE="http://kde-apps.org/content/show.php?content=23011"
+SRC_URI="http://kde-apps.org/CONTENT/content-files/23011-qt-sqlite3-${VERSION}.tar.gz"
+SRC_DIR="qt-sqlite3-${VERSION}"
+
+src_install() {
+	cd ${B}
+	qt3pluginto sqldrivers
+	doqt3plugin sqldrivers/*.dll
+}
